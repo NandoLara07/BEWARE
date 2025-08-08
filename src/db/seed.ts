@@ -280,7 +280,7 @@ const products = [
   {
     name: "Mochila",
     description:
-      "Mochila resistente e confortável, ideal para o dia a dia e viagens.",
+      "Mochila urbana premium com design moderno e funcional. Fabricada com materiais de alta durabilidade e resistência à água. Possui compartimentos organizadores, alças acolchoadas ajustáveis e bolsos laterais para garrafa. Ideal para trabalho, estudos, academia e viagens. Capacidade de 25 litros com zíperes reforçados e acabamento de qualidade superior.",
     categoryName: "Acessórios",
     variants: [
       { color: "Preta", price: 12999 },
@@ -289,7 +289,8 @@ const products = [
   },
   {
     name: "Meia Alta",
-    description: "Meia alta de algodão, confortável e durável.",
+    description:
+      "Meia alta confeccionada em algodão premium com tecnologia de absorção de umidade. Possui cano alto que oferece proteção e conforto durante atividades físicas e uso cotidiano. Com reforço no calcanhar e biqueira, costuras planas para evitar atrito e banda elástica que não marca a pele. Ideal para uso com tênis esportivos e boots.",
     categoryName: "Acessórios",
     variants: [
       { color: "Branca", price: 1999 },
@@ -298,7 +299,8 @@ const products = [
   },
   {
     name: "Boné Nocta",
-    description: "Boné Nocta com design moderno e ajuste confortável.",
+    description:
+      "Boné Nocta com design exclusivo e moderno inspirado no street style contemporâneo. Confeccionado em tecido premium com aba curva estruturada e fecho ajustável traseiro. Possui bordado de alta qualidade na frente e etiqueta lateral. Design versátil que combina com diversos looks, desde casual até urbano. Proteção UV e conforto durante todo o dia.",
     categoryName: "Acessórios",
     variants: [
       { color: "Preto", price: 8999 },
@@ -308,7 +310,8 @@ const products = [
   },
   {
     name: "Boné Curvo",
-    description: "Boné com aba curva, estilo clássico e versátil.",
+    description:
+      "Boné clássico com aba curva e design atemporal que nunca sai de moda. Fabricado em tecido resistente com forro interno macio e sistema de ajuste por fivela metálica. Possui ilhoses de ventilação lateral para maior conforto e respirabilidade. Estilo versátil que complementa looks casuais, esportivos e urbanos. Ideal para proteção solar e uso diário.",
     categoryName: "Acessórios",
     variants: [
       { color: "Azul", price: 7999 },
@@ -321,7 +324,7 @@ const products = [
   {
     name: "Shorts Active",
     description:
-      "Shorts esportivo para atividades físicas, com tecido que absorve o suor.",
+      "Shorts esportivo de alta performance desenvolvido especialmente para atividades físicas intensas. Tecido com tecnologia Dri-FIT que absorve e evapora o suor rapidamente, mantendo o corpo seco e confortável. Possui elástico na cintura com cordão ajustável, bolsos laterais com zíper e costura plana que evita atrito. Corte ergonômico que oferece liberdade de movimento total.",
     categoryName: "Bermuda & Shorts",
     variants: [
       { color: "Preto", price: 6999 },
@@ -331,7 +334,8 @@ const products = [
   },
   {
     name: "Shorts Core",
-    description: "Shorts casual confortável, perfeito para o dia a dia.",
+    description:
+      "Shorts casual de algodão premium com design minimalista e confortável para o dia a dia. Tecido macio com toque suave na pele e modelagem relaxed fit que não restringe movimentos. Possui cintura elástica com cordão interno, bolsos funcionais e barra com acabamento diferenciado. Perfeito para momentos de lazer, casa, academia leve e passeios casuais.",
     categoryName: "Bermuda & Shorts",
     variants: [
       { color: "Verde", price: 5999 },
@@ -342,7 +346,7 @@ const products = [
   {
     name: "Shorts Challenger",
     description:
-      "Shorts com design moderno e confortável, ideal para diversas ocasiões.",
+      "Shorts moderno com design contemporâneo que combina estilo e funcionalidade. Confeccionado em tecido misto de alta qualidade com tratamento anti-pilling e resistência ao desbotamento. Modelagem ajustada com cintura média, bolsos laterais profundos e detalhes contrastantes. Ideal para atividades urbanas, encontros casuais e uso versátil no guarda-roupa masculino moderno.",
     categoryName: "Bermuda & Shorts",
     variants: [
       { color: "Marrom", price: 7499 },
@@ -353,7 +357,7 @@ const products = [
   {
     name: "Bermuda Premier",
     description:
-      "Bermuda premium com qualidade superior e design diferenciado.",
+      "Bermuda premium de linha superior com qualidade excepcional e design sofisticado. Tecido nobre com textura diferenciada, modelagem impecável e acabamentos refinados. Possui cintura com passadores para cinto, bolsos funcionais com vivo contrastante e comprimento ideal que valoriza a silhueta. Perfeita para ocasiões que exigem elegância casual e estilo diferenciado.",
     categoryName: "Bermuda & Shorts",
     variants: [
       { color: "Verde", price: 8999 },
@@ -366,7 +370,7 @@ const products = [
   {
     name: "Calça Nike Club",
     description:
-      "Calça esportiva Nike Club, confortável e versátil para treinos e uso casual.",
+      "Calça esportiva Nike Club com tecnologia avançada e design icônico da marca. Tecido French Terry macio por dentro e liso por fora, oferecendo aquecimento sem peso excessivo. Possui cintura elástica com cordão ajustável, bolsos laterais amplos e punhos elásticos. Corte moderno que funciona perfeitamente para treinos, corridas matinais e uso casual urbano. Logo Nike bordado discretamente.",
     categoryName: "Calças",
     variants: [
       { color: "Bege", price: 15999 },
@@ -377,7 +381,7 @@ const products = [
   {
     name: "Calça Knit",
     description:
-      "Calça de malha com tecido macio e confortável, ideal para relaxar.",
+      "Calça de malha premium com tecido extremamente macio e confortável, ideal para momentos de relaxamento e conforto máximo. Confeccionada em algodão penteado com elastano para flexibilidade total. Modelagem regular fit com cintura elástica, bolsos laterais e punhos que não apertam. Perfeita para casa, viagens longas, home office e atividades que demandam conforto absoluto.",
     categoryName: "Calças",
     variants: [
       { color: "Preta", price: 12999 },
@@ -388,7 +392,7 @@ const products = [
   {
     name: "Calça Brooklin",
     description:
-      "Calça com design urbano e moderno, perfeita para o street style.",
+      "Calça com design urbano inspirado no street style de Nova York, especialmente do bairro do Brooklyn. Tecido resistente com lavagem especial que confere aspecto único e autêntico. Modelagem slim fit moderna com cintura média, bolsos funcionais e detalhes em costuras contrastantes. Ideal para compor looks urbanos, casuais e contemporâneos que expressam personalidade e estilo.",
     categoryName: "Calças",
     variants: [
       { color: "Bege", price: 13999 },
@@ -399,7 +403,7 @@ const products = [
   {
     name: "Calça Jordan",
     description:
-      "Calça Jordan com qualidade premium e design icônico da marca.",
+      "Calça Jordan de qualidade premium com o DNA icônico da marca mais respeitada no basquete mundial. Tecido de alta tecnologia com tratamento especial para durabilidade e conforto. Design exclusivo com logo Jumpman bordado, detalhes contrastantes e modelagem que oferece mobilidade total. Representa o legado de Michael Jordan e a cultura sneaker. Ideal para atletas e apaixonados por basquete.",
     categoryName: "Calças",
     variants: [
       { color: "Verde", price: 18999 },
@@ -412,7 +416,7 @@ const products = [
   {
     name: "Camiseta ACG",
     description:
-      "Camiseta ACG com design técnico e material de alta qualidade.",
+      "Camiseta ACG (All Conditions Gear) desenvolvida para enfrentar todos os tipos de condições climáticas e ambientes. Tecido técnico com propriedades de secagem rápida, proteção UV e resistência a odores. Design funcional com costuras estratégicas, gola reforçada e estampa refletiva para maior visibilidade. Ideal para atividades outdoor, aventuras, camping, trilhas e uso urbano técnico.",
     categoryName: "Camisetas",
     variants: [
       { color: "Bege", price: 6999 },
@@ -423,7 +427,7 @@ const products = [
   {
     name: "Camiseta Run",
     description:
-      "Camiseta para corrida com tecido respirável e conforto superior.",
+      "Camiseta específica para corrida com tecnologia de ponta para máxima performance. Tecido ultraleve com microfibras que garantem respirabilidade superior e secagem instantânea do suor. Possui costuras planas anti-atrito, gola sem etiqueta para evitar irritações e corte ergonômico que acompanha os movimentos naturais da corrida. Essencial para runners de todos os níveis.",
     categoryName: "Camisetas",
     variants: [
       { color: "Preta", price: 5999 },
@@ -433,7 +437,7 @@ const products = [
   {
     name: "Camiseta Active",
     description:
-      "Camiseta esportiva para atividades físicas com tecnologia Dri-FIT.",
+      "Camiseta esportiva versátil com tecnologia Dri-FIT que mantém o corpo seco durante atividades físicas intensas. Confeccionada em poliéster reciclado com tratamento antimicrobiano que reduz odores. Design clean com logo minimalista, gola careca reforçada e modelagem que favorece a silhueta. Perfeita para academia, yoga, pilates, funcional e atividades fitness em geral.",
     categoryName: "Camisetas",
     variants: [
       { color: "Branca", price: 5499 },
@@ -443,7 +447,7 @@ const products = [
   {
     name: "Camiseta Nature",
     description:
-      "Camiseta com estampa inspirada na natureza, confortável e estilosa.",
+      "Camiseta com estampa exclusiva inspirada na natureza e sustentabilidade ambiental. Confeccionada em algodão orgânico certificado, livre de agrotóxicos e corantes químicos prejudiciais. Design artístico com elementos naturais em alta definição, gola careca e modelagem confortável. Representa o compromisso com o meio ambiente e o estilo de vida consciente e conectado com a natureza.",
     categoryName: "Camisetas",
     variants: [
       { color: "Preta", price: 6499 },
@@ -455,7 +459,7 @@ const products = [
   {
     name: "Corta Vento",
     description:
-      "Jaqueta corta-vento leve e resistente, ideal para atividades ao ar livre.",
+      "Jaqueta corta-vento ultraleve e compacta, essencial para atividades ao ar livre e condições climáticas variáveis. Tecido ripstop resistente a rasgos com tratamento DWR (Durable Water Repellent) que repele água e vento. Possui capuz ajustável, bolsos com zíper, punhos elásticos e sistema de ventilação nas axilas. Pode ser dobrada e guardada em bolsa compacta. Ideal para corrida, ciclismo, camping e viagens.",
     categoryName: "Jaquetas & Moletons",
     variants: [
       { color: "Preto", price: 19999 },
@@ -465,7 +469,7 @@ const products = [
   {
     name: "Jaqueta Windrunner",
     description:
-      "Jaqueta Windrunner com design clássico e proteção contra o vento.",
+      "Jaqueta Windrunner com design clássico e icônico que atravessa gerações mantendo sua relevância no streetwear. Tecido resistente ao vento com forro interno macio, capuz ajustável com cordão e zíper frontal de alta qualidade. Possui bolsos laterais, punhos elásticos e o famoso padrão chevron que caracteriza a silhueta única. Símbolo de estilo e funcionalidade que combina herança esportiva com moda urbana contemporânea.",
     categoryName: "Jaquetas & Moletons",
     variants: [
       { color: "Azul", price: 22999 },
@@ -475,7 +479,7 @@ const products = [
   {
     name: "Jaqueta Style",
     description:
-      "Jaqueta com estilo urbano e moderno, perfeita para compor looks casuais.",
+      "Jaqueta com estilo urbano moderno e design diferenciado que expressa personalidade única. Tecido premium com textura especial, modelagem oversized contemporânea e detalhes exclusivos em zíperes e costuras. Possui gola alta, bolsos amplos, forro interno e acabamentos que remetem à moda streetwear internacional. Perfeita para compor looks autênticos e se destacar no cenário urbano moderno.",
     categoryName: "Jaquetas & Moletons",
     variants: [
       { color: "Marrom", price: 17999 },
@@ -484,7 +488,8 @@ const products = [
   },
   {
     name: "Jaqueta Nike Club",
-    description: "Jaqueta Nike Club com qualidade premium e design atemporal.",
+    description:
+      "Jaqueta Nike Club de linha premium com qualidade superior e design atemporal que nunca sai de moda. Confeccionada em tecido French Terry com exterior liso e interior macio e aconchegante. Possui zíper frontal completo, bolsos laterais amplos, capuz com forro e punhos/barra elásticos que mantêm o aquecimento. Logo Nike bordado discretamente. Versatilidade para uso esportivo e casual urbano com o prestígio da marca líder mundial.",
     categoryName: "Jaquetas & Moletons",
     variants: [
       { color: "Azul", price: 25999 },
@@ -496,7 +501,7 @@ const products = [
   {
     name: "Tênis Nike Vomero",
     description:
-      "Tênis Nike Vomero com tecnologia de amortecimento superior para corridas.",
+      "Tênis Nike Vomero com tecnologia de amortecimento revolucionária para corredores que buscam máximo conforto e performance. Sistema de amortecimento duplo com espuma ZoomX e Air Zoom que oferece retorno de energia a cada passada. Cabedal em mesh respirável com sobreposições estratégicas para suporte e durabilidade. Solado com borracha resistente ao desgaste e padrão de tração multidirecional. Ideal para corridas longas, treinos intensos e uso diário.",
     categoryName: "Tênis",
     variants: [
       { color: "Preto", price: 79999 },
@@ -506,7 +511,8 @@ const products = [
   },
   {
     name: "Tênis Nike Panda",
-    description: "Tênis Nike com design Panda icônico, confortável e estiloso.",
+    description:
+      "Tênis Nike com design icônico inspirado nas cores do panda, combinando estilo único com conforto excepcional. Cabedal em couro sintético premium com detalhes em couro natural, oferecendo durabilidade e visual sofisticado. Sistema de amortecimento responsivo, palmilha anatômica e solado de borracha com aderência superior. Design que se tornou fenômeno na cultura sneaker mundial, sendo referência em estilo e versatilidade urbana.",
     categoryName: "Tênis",
     variants: [
       { color: "Verde", price: 69999 },
@@ -517,7 +523,7 @@ const products = [
   {
     name: "Tênis Nike Air Force",
     description:
-      "Tênis Nike Air Force 1, um clássico atemporal com design icônico.",
+      "Tênis Nike Air Force 1, o clássico absoluto e atemporal que revolucionou a cultura sneaker mundial desde 1982. Primeiro tênis de basquete a utilizar a tecnologia Air da Nike, oferecendo amortecimento incomparável. Cabedal em couro premium, palmilha anatômica, solado de borracha durável e a icônica unidade Air visível no calcanhar. Símbolo de autenticidade, estilo e história que transcende gerações e se mantém relevante na moda streetwear global.",
     categoryName: "Tênis",
     variants: [
       { color: "Preto", price: 89999 },
@@ -526,7 +532,8 @@ const products = [
   },
   {
     name: "Tênis Nike Dunk Low",
-    description: "Tênis Nike Dunk Low com design retrô e conforto moderno.",
+    description:
+      "Tênis Nike Dunk Low com design retrô que conquistou nova geração de sneakerheads ao redor do mundo. Originalmente criado para basquete universitário, hoje é ícone do streetwear contemporâneo. Cabedal em couro premium com sobreposições contrastantes, forro interno acolchoado e sistema de amarração clássico. Solado de borracha com padrão circular que oferece tração e durabilidade. Representa a fusão perfeita entre herança esportiva e moda urbana atual.",
     categoryName: "Tênis",
     variants: [
       { color: "Branco", price: 75999 },
