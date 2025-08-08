@@ -28,12 +28,25 @@ const Home = async () => {
     <>
       <Header />
       <div className="space-y-6">
-        <div className="px-5">
+        {/* Banner Mobile */}
+        <div className="block px-5 sm:hidden">
           <Image
             src="/banner-01.png"
             alt="Leve uma vida com estilo"
             height={0}
             width={0}
+            sizes="100vw"
+            className="h-auto w-full"
+          />
+        </div>
+
+        {/* Banner Desktop */}
+        <div className="hidden px-6 sm:block">
+          <Image
+            src="/banner-01-desktop.png" // imagem horizontal (desktop)
+            alt="Leve uma vida com estilo"
+            width={0}
+            height={0}
             sizes="100vw"
             className="h-auto w-full"
           />
@@ -47,12 +60,25 @@ const Home = async () => {
           <CategorySelector categories={categories} />
         </div>
 
-        <div className="px-5">
+        <div className="block px-5 sm:hidden">
+          {/* Banner Mobile */}
           <Image
             src="/banner-02.png"
             alt="Seja Autêntico"
             height={0}
             width={0}
+            sizes="100vw"
+            className="h-auto w-full"
+          />
+        </div>
+
+        {/* Banner Desktop */}
+        <div className="hidden px-6 sm:block">
+          <Image
+            src="/banner-02-desktop.png" // imagem horizontal (desktop)
+            alt="Leve uma vida com estilo"
+            width={0}
+            height={0}
             sizes="100vw"
             className="h-auto w-full"
           />
