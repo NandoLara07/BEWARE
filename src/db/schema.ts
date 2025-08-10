@@ -98,15 +98,13 @@ export const productTable = pgTable("product", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
-export const productRelations = relations(productTable, ({ one, many }) => {
-  return {
-    category: one(categoryTable, {
-      fields: [productTable.categoryId],
-      references: [categoryTable.id],
-    }),
-    variants: many(productVariantTable),
-  };
-});
+export const productRelations = relations(productTable, ({ one, many }) => ({
+  category: one(categoryTable, {
+    fields: [productTable.categoryId],
+    references: [categoryTable.id],
+  }),
+  variants: many(productVariantTable),
+}));
 
 export const productVariantTable = pgTable("product_variant", {
   id: uuid().primaryKey().defaultRandom(),
@@ -123,14 +121,12 @@ export const productVariantTable = pgTable("product_variant", {
 
 export const productVariantRelations = relations(
   productVariantTable,
-  ({ one }) => {
-    return {
-      product: one(productTable, {
-        fields: [productVariantTable.productId],
-        references: [productTable.id],
-      }),
-    };
-  },
+  ({ one }) => ({
+    product: one(productTable, {
+      fields: [productVariantTable.productId],
+      references: [productTable.id],
+    }),
+  }),
 );
 
 export const shippingAddressTable = pgTable("shipping_address", {
@@ -146,7 +142,7 @@ export const shippingAddressTable = pgTable("shipping_address", {
   state: text().notNull(),
   neighborhood: text().notNull(),
   zipCode: text().notNull(),
-  county: text().notNull(),
+  country: text().notNull(),
   phone: text().notNull(),
   email: text().notNull(),
   cpfOrCnpj: text().notNull(),
@@ -168,7 +164,7 @@ export const shippingAddressRelations = relations(
 );
 
 export const cartTable = pgTable("cart", {
-  id: uuid("id").primaryKey().defaultRandom(),
+  id: uuid().primaryKey().defaultRandom(),
   userId: text("user_id")
     .notNull()
     .references(() => userTable.id, { onDelete: "cascade" }),

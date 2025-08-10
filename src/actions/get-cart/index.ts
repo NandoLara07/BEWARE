@@ -27,15 +27,21 @@ const getCart = async () => {
       },
     },
   });
+  // if (!cart) {
+  //   const [newCart] = await db
+  //     .insert(cartTable)
+  //     .values({
+  //       userId: session.user.id,
+  //     })
+  //     .returning();
+  //   return {
+  //     ...newCart,
+  //     items: [],
+  //     totalPriceInCents: 0,
+  //   };
+  // }
   if (!cart) {
-    const [newCart] = await db
-      .insert(cartTable)
-      .values({
-        userId: session.user.id,
-      })
-      .returning();
     return {
-      ...newCart,
       items: [],
       totalPriceInCents: 0,
     };

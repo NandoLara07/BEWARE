@@ -17,6 +17,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
+import { SkeletonCard } from "../ui/skeleton-card";
 import CartItem from "./cart-item";
 
 const Cart = () => {
@@ -40,7 +41,23 @@ const Cart = () => {
           <div className="mb-4 min-h-0 flex-1">
             <ScrollArea className="h-full">
               <div className="flex flex-col gap-4 py-2">
-                {cartIsLoading && <div>Carregando...</div>}
+                {cartIsLoading && (
+                  <div className="flex flex-col gap-4">
+                    <SkeletonCard />
+                    <SkeletonCard />
+                    <SkeletonCard />
+                  </div>
+                )}
+
+                {!cartIsLoading &&
+                  (!cart?.items || cart.items.length === 0) && (
+                    <div className="flex h-full flex-col items-center justify-center py-8">
+                      <p className="text-center text-gray-500">
+                        Não há nenhum produto no carrinho :/
+                      </p>
+                    </div>
+                  )}
+
                 {cart?.items.map((item) => (
                   <CartItem
                     key={item.id}
