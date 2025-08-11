@@ -62,7 +62,15 @@ export const Header = () => {
                     <Button
                       variant="outline"
                       size="icon"
-                      onClick={() => authClient.signOut()}
+                      onClick={() =>
+                        authClient.signOut({
+                          fetchOptions: {
+                            onSuccess: () => {
+                              window.location.href = "/authentication";
+                            },
+                          },
+                        })
+                      }
                     >
                       <LogOutIcon />
                     </Button>
