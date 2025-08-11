@@ -1,12 +1,11 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { MinusIcon, PlusIcon, TrashIcon } from "lucide-react";
 import Image from "next/image";
 import { toast } from "sonner";
 
-import { addProductToCart } from "@/actions/add-cart-product";
-import { decreaseCartProductQuantity } from "@/actions/decrease-cart-product-quantity";
-import { removeProductFromCart } from "@/actions/remove-cart-product";
 import { formatCentsToBRL } from "@/helpers/money";
+import { useDecreaseCartProduct } from "@/hooks/mutations/use-decrease-cart-product";
+import { useIncreaseCartProduct } from "@/hooks/mutations/use-increase-cart-products";
+import { useRemoveProductFromCart } from "@/hooks/mutations/use-remove-product-from-cart";
 
 import { Button } from "../ui/button";
 
@@ -29,44 +28,13 @@ const CartItem = ({
   productVariantPriceInCents,
   quantity,
 }: CartItemProps) => {
-  const queryClient = useQueryClient();
+  const removeProductFromCartMutation = useRemoveProductFromCart(id);
 
-  const removeProductFromCartMutation = useMutation({
-    mutationKey: ["remove-cart-product", id],
-    mutationFn: () => removeProductFromCart({ cartItemId: id }),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["cart"] });
-      queryClient.refetchQueries({ queryKey: ["cart"] }); // ← Força refetch
-      toast.success("Produto removido do carrinho");
-    },
-    onError: () => {
-      toast.error("Erro ao remover produto do carrinho");
-    },
-  });
-  const decreaseCartProductQuantityMutation = useMutation({
-    mutationKey: ["decrease-cart-product-quantity", id],
-    mutationFn: () => decreaseCartProductQuantity({ cartItemId: id }),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["cart"] });
-      queryClient.refetchQueries({ queryKey: ["cart"] });
-      toast.success("Quantidade diminuída");
-    },
-    onError: () => {
-      toast.error("Erro ao diminuir quantidade");
-    },
-  });
-  const increaseCartProductQuantityMutation = useMutation({
-    mutationKey: ["increase-cart-product-quantity", productVariantId],
-    mutationFn: () => addProductToCart({ productVariantId, quantity: 1 }),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["cart"] });
-      queryClient.refetchQueries({ queryKey: ["cart"] });
-      toast.success("Quantidade aumentada");
-    },
-    onError: () => {
-      toast.error("Erro ao aumentar quantidade");
-    },
-  });
+  const decreaseCartProductQuantityMutation = useDecreaseCartProduct(id);
+
+  const increaseCartProductQuantityMutation =
+    useIncreaseCartProduct(productVariantId);
+
   const handleDeleteClick = () => {
     removeProductFromCartMutation.mutate();
   };

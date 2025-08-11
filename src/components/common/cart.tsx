@@ -1,14 +1,12 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
 import { ShoppingCart } from "lucide-react";
-import Image from "next/image";
 
-import getCart from "@/actions/get-cart";
 import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { formatCentsToBRL } from "@/helpers/money";
+import { useCart } from "@/hooks/queries/use-cart";
 
+import { ScrollArea } from "../ui/scroll-area";
 import { Separator } from "../ui/separator";
 import {
   Sheet,
@@ -20,11 +18,8 @@ import {
 import { SkeletonCard } from "../ui/skeleton-card";
 import CartItem from "./cart-item";
 
-const Cart = () => {
-  const { data: cart, isPending: cartIsLoading } = useQuery({
-    queryKey: ["cart"],
-    queryFn: () => getCart(),
-  });
+export const Cart = () => {
+  const { data: cart, isPending: cartIsLoading } = useCart();
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -32,23 +27,22 @@ const Cart = () => {
           <ShoppingCart />
         </Button>
       </SheetTrigger>
-      <SheetContent className="flex flex-col rounded-l-2xl">
-        <SheetHeader className="flex-shrink-0">
+      <SheetContent>
+        <SheetHeader>
           <SheetTitle>Carrinho</SheetTitle>
         </SheetHeader>
 
-        <div className="flex min-h-0 flex-1 flex-col px-5 pb-5">
-          <div className="mb-4 min-h-0 flex-1">
+        <div className="flex h-full flex-col px-5 pb-5">
+          <div className="flex h-full max-h-full flex-col overflow-hidden">
             <ScrollArea className="h-full">
-              <div className="flex flex-col gap-4 py-2">
+              <div className="flex h-full flex-col gap-8">
                 {cartIsLoading && (
-                  <div className="flex flex-col gap-4">
+                  <div className="flex h-full flex-col gap-4">
                     <SkeletonCard />
                     <SkeletonCard />
                     <SkeletonCard />
                   </div>
                 )}
-
                 {!cartIsLoading &&
                   (!cart?.items || cart.items.length === 0) && (
                     <div className="flex h-full flex-col items-center justify-center py-8">
@@ -57,7 +51,6 @@ const Cart = () => {
                       </p>
                     </div>
                   )}
-
                 {cart?.items.map((item) => (
                   <CartItem
                     key={item.id}
@@ -77,33 +70,29 @@ const Cart = () => {
           </div>
 
           {cart?.items && cart?.items.length > 0 && (
-            <div className="flex flex-shrink-0 flex-col gap-4">
+            <div className="flex flex-col gap-4">
               <Separator />
 
-              <div className="flex items-center justify-between text-xs">
+              <div className="flex items-center justify-between text-xs font-medium">
                 <p>Subtotal</p>
-                <p className="font-semibold">
-                  {formatCentsToBRL(cart?.totalPriceInCents ?? 0)}
-                </p>
+                <p>{formatCentsToBRL(cart?.totalPriceInCents ?? 0)}</p>
               </div>
 
               <Separator />
 
-              <div className="flex items-center justify-between text-xs">
+              <div className="flex items-center justify-between text-xs font-medium">
                 <p>Entrega</p>
-                <p className="font-semibold">GRÁTIS</p>
+                <p className="text-green-600">GRÁTIS</p>
               </div>
 
               <Separator />
 
-              <div className="flex items-center justify-between text-xs">
+              <div className="flex items-center justify-between text-xs font-medium">
                 <p>Total</p>
-                <p className="font-semibold">
-                  {formatCentsToBRL(cart?.totalPriceInCents ?? 0)}
-                </p>
+                <p>{formatCentsToBRL(cart?.totalPriceInCents ?? 0)}</p>
               </div>
 
-              <Button className="mt-4 rounded-full">Finalizar Compra</Button>
+              <Button className="mt-5 rounded-full">Finalizar compra</Button>
             </div>
           )}
         </div>
@@ -112,4 +101,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+// SERVER ACTION

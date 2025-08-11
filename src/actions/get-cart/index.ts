@@ -6,7 +6,7 @@ import { db } from "@/db";
 import { cartTable } from "@/db/schema";
 import { auth } from "@/lib/auth";
 
-const getCart = async () => {
+export const getCart = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
@@ -27,21 +27,15 @@ const getCart = async () => {
       },
     },
   });
-  // if (!cart) {
-  //   const [newCart] = await db
-  //     .insert(cartTable)
-  //     .values({
-  //       userId: session.user.id,
-  //     })
-  //     .returning();
-  //   return {
-  //     ...newCart,
-  //     items: [],
-  //     totalPriceInCents: 0,
-  //   };
-  // }
   if (!cart) {
+    const [newCart] = await db
+      .insert(cartTable)
+      .values({
+        userId: session.user.id,
+      })
+      .returning();
     return {
+      ...newCart,
       items: [],
       totalPriceInCents: 0,
     };
@@ -54,5 +48,3 @@ const getCart = async () => {
     ),
   };
 };
-
-export default getCart;
