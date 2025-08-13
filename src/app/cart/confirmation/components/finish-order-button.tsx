@@ -52,7 +52,6 @@ const FinishOrderButton = () => {
         )}
         Finalizar compra
       </Button>
-
       <Dialog open={successDialogIsOpen} onOpenChange={setSuccessDialogIsOpen}>
         <DialogContent className="text-center">
           <Image
