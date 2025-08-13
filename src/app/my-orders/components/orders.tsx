@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 
-import Footer from "@/components/common/footer";
 import {
   Accordion,
   AccordionContent,
@@ -120,8 +119,6 @@ const Orders = ({ orders }: OrdersProps) => {
           </CardContent>
         </Card>
       ))}
-
-      <Footer />
     </div>
   );
 };
