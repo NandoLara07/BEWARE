@@ -113,7 +113,7 @@ export const Header = () => {
                   </Link>
                   <Cart
                     trigger={
-                      <button className="flex cursor-pointer items-center gap-3">
+                      <button className="flex w-fit cursor-pointer items-center gap-3">
                         <ShoppingCart />
                         <p className="font-medium">Carrinho</p>
                       </button>
