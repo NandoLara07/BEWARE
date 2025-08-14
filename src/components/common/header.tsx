@@ -60,7 +60,7 @@ export const Header = () => {
                         </span>
                       </div>
                     </div>
-                    <Button
+                    {/* <Button
                       variant="outline"
                       size="icon"
                       onClick={() =>
@@ -74,7 +74,7 @@ export const Header = () => {
                       }
                     >
                       <LogOutIcon />
-                    </Button>
+                    </Button> */}
                   </div>
                 </>
               ) : (
@@ -103,12 +103,36 @@ export const Header = () => {
                     <Truck />
                     <p className="font-medium">Meus Pedidos</p>
                   </Link>
-                  <Link href="/" className="flex gap-3">
-                    <Home />
-                    <p className="font-medium">Início</p>
-                  </Link>
                 </div>
               </div>
+
+              {session?.user ? (
+                <>
+                  <div className="py-6">
+                    <Separator />
+                  </div>
+
+                  <div className="ps-6">
+                    <button
+                      onClick={() =>
+                        authClient.signOut({
+                          fetchOptions: {
+                            onSuccess: () => {
+                              window.location.href = "/authentication";
+                            },
+                          },
+                        })
+                      }
+                      className="text-muted-foreground flex items-center gap-2 hover:text-gray-700"
+                    >
+                      <LogOutIcon size={20} />
+                      <p className="font-medium">Sair da conta</p>
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           </SheetContent>
         </Sheet>
