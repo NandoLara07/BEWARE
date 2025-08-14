@@ -1,6 +1,13 @@
 "use client";
 
-import { Home, LogInIcon, LogOutIcon, MenuIcon, Truck } from "lucide-react";
+import {
+  Home,
+  LogInIcon,
+  LogOutIcon,
+  MenuIcon,
+  ShoppingCart,
+  Truck,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -96,14 +103,22 @@ export const Header = () => {
 
               <div className="ps-6">
                 <div className="flex flex-col gap-4">
-                  <Link href="/" className="flex gap-3">
+                  <Link href="/" className="flex w-fit gap-3">
                     <Home />
                     <p className="font-medium">Início</p>
                   </Link>
-                  <Link href="/" className="flex gap-3">
+                  <Link href="/my-orders" className="flex w-fit gap-3">
                     <Truck />
                     <p className="font-medium">Meus Pedidos</p>
                   </Link>
+                  <Cart
+                    trigger={
+                      <button className="flex cursor-pointer items-center gap-3">
+                        <ShoppingCart />
+                        <p className="font-medium">Carrinho</p>
+                      </button>
+                    }
+                  />
                 </div>
               </div>
 

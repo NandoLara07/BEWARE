@@ -2,6 +2,7 @@
 
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
+import { ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
 import { formatCentsToBRL } from "@/helpers/money";
@@ -19,15 +20,22 @@ import {
 import { SkeletonCard } from "../ui/skeleton-card";
 import CartItem from "./cart-item";
 
-export const Cart = () => {
+interface CartProps {
+  trigger?: ReactNode;
+}
+
+export const Cart = ({ trigger }: CartProps) => {
   const { data: cart, isPending: cartIsLoading } = useCart();
+
+  const defaultTrigger = (
+    <Button variant="outline" size="icon">
+      <ShoppingCart />
+    </Button>
+  );
+
   return (
     <Sheet>
-      <SheetTrigger asChild>
-        <Button variant="outline" size="icon">
-          <ShoppingCart />
-        </Button>
-      </SheetTrigger>
+      <SheetTrigger asChild>{trigger || defaultTrigger}</SheetTrigger>
       <SheetContent className="flex flex-col">
         <SheetHeader>
           <SheetTitle>Carrinho</SheetTitle>
