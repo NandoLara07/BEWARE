@@ -105,7 +105,7 @@ export const Header = () => {
                   </Link>
                   <Link href="/" className="flex gap-3">
                     <Home />
-                    <p className="font-medium">Início</p>
+                    <p className="font-medium">Carrinho</p>
                   </Link>
                 </div>
               </div>
