@@ -17,6 +17,7 @@ import {
   SheetTrigger,
 } from "../ui/sheet";
 import { Cart } from "./cart";
+import CategoryList from "./category-list";
 
 export const Header = () => {
   const { data: session } = authClient.useSession();
@@ -104,6 +105,14 @@ export const Header = () => {
                     <p className="font-medium">Meus Pedidos</p>
                   </Link>
                 </div>
+              </div>
+
+              <div className="py-6">
+                <Separator />
+              </div>
+
+              <div className="ps-6">
+                <CategoryList />
               </div>
 
               {session?.user ? (

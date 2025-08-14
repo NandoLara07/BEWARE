@@ -28,52 +28,49 @@ export const Cart = () => {
           <ShoppingCart />
         </Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="flex flex-col">
         <SheetHeader>
           <SheetTitle>Carrinho</SheetTitle>
         </SheetHeader>
 
-        <div className="flex h-full flex-col px-5 pb-5">
-          <div className="flex h-full max-h-full flex-col overflow-hidden">
-            <ScrollArea className="h-full">
-              <div className="flex h-full flex-col gap-8">
-                {cartIsLoading && (
-                  <div className="flex h-full flex-col gap-4">
-                    <SkeletonCard />
-                    <SkeletonCard />
-                    <SkeletonCard />
-                  </div>
-                )}
-                {!cartIsLoading &&
-                  (!cart?.items || cart.items.length === 0) && (
-                    <div className="flex h-full flex-col items-center justify-center py-8">
-                      <p className="text-center text-gray-500">
-                        Não há nenhum produto no carrinho :/
-                      </p>
-                    </div>
-                  )}
-                {cart?.items.map((item) => (
-                  <CartItem
-                    key={item.id}
-                    id={item.id}
-                    productVariantId={item.productVariant.id}
-                    productName={item.productVariant.product.name}
-                    productVariantName={item.productVariant.name}
-                    productVariantImageUrl={item.productVariant.imageUrl}
-                    productVariantPriceInCents={
-                      item.productVariant.priceInCents
-                    }
-                    quantity={item.quantity}
-                  />
-                ))}
-              </div>
-            </ScrollArea>
-          </div>
+        {/* Área scrollável - flex-1 toma o espaço restante */}
+        <div className="flex-1 overflow-hidden px-5">
+          <ScrollArea className="h-full">
+            <div className="flex flex-col gap-4 pb-4">
+              {cartIsLoading && (
+                <div className="flex flex-col gap-4">
+                  <SkeletonCard />
+                  <SkeletonCard />
+                  <SkeletonCard />
+                </div>
+              )}
+              {!cartIsLoading && (!cart?.items || cart.items.length === 0) && (
+                <div className="flex h-full flex-col items-center justify-center py-8">
+                  <p className="text-center text-gray-500">
+                    Não há nenhum produto no carrinho :/
+                  </p>
+                </div>
+              )}
+              {cart?.items.map((item) => (
+                <CartItem
+                  key={item.id}
+                  id={item.id}
+                  productVariantId={item.productVariant.id}
+                  productName={item.productVariant.product.name}
+                  productVariantName={item.productVariant.name}
+                  productVariantImageUrl={item.productVariant.imageUrl}
+                  productVariantPriceInCents={item.productVariant.priceInCents}
+                  quantity={item.quantity}
+                />
+              ))}
+            </div>
+          </ScrollArea>
+        </div>
 
-          {cart?.items && cart?.items.length > 0 && (
-            <div className="flex flex-col gap-4">
-              <Separator />
-
+        {/* Resumo fixo - flex-shrink-0 impede que seja comprimido */}
+        {cart?.items && cart?.items.length > 0 && (
+          <div className="bg-background flex-shrink-0 border-t px-5 pt-4 pb-5">
+            <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between text-xs font-medium">
                 <p>Subtotal</p>
                 <p>{formatCentsToBRL(cart?.totalPriceInCents ?? 0)}</p>
@@ -93,12 +90,12 @@ export const Cart = () => {
                 <p>{formatCentsToBRL(cart?.totalPriceInCents ?? 0)}</p>
               </div>
 
-              <Button className="mt-5 rounded-full" asChild>
+              <Button className="mt-3 w-full rounded-full" asChild>
                 <Link href="/cart/identification">Finalizar compra</Link>
               </Button>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </SheetContent>
     </Sheet>
   );

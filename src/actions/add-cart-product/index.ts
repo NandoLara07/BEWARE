@@ -1,6 +1,6 @@
 "use server";
 
-import { and, eq } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { headers } from "next/headers";
 
 import { db } from "@/db";
@@ -12,10 +12,8 @@ import { AddProductToCartSchema, addProductToCartSchema } from "./schema";
 export const addProductToCart = async (data: AddProductToCartSchema) => {
   console.log("📥 addProductToCart chamada com:", data);
 
-  // Validação inicial
   addProductToCartSchema.parse(data);
 
-  // Sessão do usuário
   const session = await auth.api.getSession({
     headers: await headers(),
   });
@@ -25,7 +23,6 @@ export const addProductToCart = async (data: AddProductToCartSchema) => {
     throw new Error("Unauthorized - usuário não logado");
   }
 
-  // Produto
   const productVariant = await db.query.productVariantTable.findFirst({
     where: (productVariant, { eq }) =>
       eq(productVariant.id, data.productVariantId),
@@ -38,7 +35,6 @@ export const addProductToCart = async (data: AddProductToCartSchema) => {
     );
   }
 
-  // Carrinho
   const cart = await db.query.cartTable.findFirst({
     where: (cart, { eq }) => eq(cart.userId, session.user.id),
   });
@@ -55,7 +51,6 @@ export const addProductToCart = async (data: AddProductToCartSchema) => {
     console.log("🆕 Novo carrinho criado:", cartId);
   }
 
-  // Buscar item existente apenas no carrinho atual
   const cartItem = await db.query.cartItemTable.findFirst({
     where: (cartItem, { and, eq }) =>
       and(
@@ -80,7 +75,6 @@ export const addProductToCart = async (data: AddProductToCartSchema) => {
 
     console.log("🔄 UPDATE executado, linhas afetadas:", result.rowCount);
 
-    // Se não atualizou nada, cria o item como novo
     if (!result.rowCount || result.rowCount === 0) {
       console.warn(
         "⚠ Nenhuma linha atualizada — inserindo item novo para evitar item fantasma",
@@ -96,7 +90,6 @@ export const addProductToCart = async (data: AddProductToCartSchema) => {
     return { message: "Quantidade atualizada com sucesso" };
   }
 
-  // Inserir novo item se não existir
   console.log(`➕ Inserindo item novo: ${data.productVariantId}`);
   await db.insert(cartItemTable).values({
     cartId,
