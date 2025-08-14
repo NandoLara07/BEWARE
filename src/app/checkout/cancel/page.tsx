@@ -1,0 +1,56 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+
+import { Header } from "@/components/common/header";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
+const CheckoutSuccessPage = () => {
+  return (
+    <>
+      <Header />
+      <Dialog open={true} onOpenChange={() => {}}>
+        <DialogContent className="text-center">
+          <Image
+            src="/error-image.png"
+            alt="Error"
+            width={300}
+            height={300}
+            className="mx-auto"
+          />
+          <DialogTitle className="mt-4 text-2xl">
+            Pedido não efetuado!
+          </DialogTitle>
+          <DialogDescription className="font-medium">
+            Seu pedido não foi efetuado. Você pode tentar novamente ou
+            acompanhar o status na seção de “Meus Pedidos”.
+          </DialogDescription>
+
+          <DialogFooter className="mt-4">
+            <Button className="rounded-full" size="lg" asChild>
+              <Link href="/my-orders">Ver meus pedidos</Link>
+            </Button>
+            <Button
+              className="rounded-full"
+              size="lg"
+              variant="outline"
+              asChild
+            >
+              <Link href="/">Voltar para a loja</Link>
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+};
+
+export default CheckoutSuccessPage;
