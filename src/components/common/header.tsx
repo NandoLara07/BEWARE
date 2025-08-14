@@ -1,6 +1,6 @@
 "use client";
 
-import { LogInIcon, LogOutIcon, MenuIcon } from "lucide-react";
+import { Home, LogInIcon, LogOutIcon, MenuIcon, Truck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,6 +8,7 @@ import { authClient } from "@/lib/auth-client";
 
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
+import { Separator } from "../ui/separator";
 import {
   Sheet,
   SheetContent,
@@ -87,6 +88,27 @@ export const Header = () => {
                   </Button>
                 </div>
               )}
+
+              <div className="py-6">
+                <Separator />
+              </div>
+
+              <div className="ps-6">
+                <div className="flex flex-col gap-4">
+                  <Link href="/" className="flex gap-3">
+                    <Home />
+                    <p className="font-medium">Início</p>
+                  </Link>
+                  <Link href="/" className="flex gap-3">
+                    <Truck />
+                    <p className="font-medium">Meus Pedidos</p>
+                  </Link>
+                  <Link href="/" className="flex gap-3">
+                    <Home />
+                    <p className="font-medium">Início</p>
+                  </Link>
+                </div>
+              </div>
             </div>
           </SheetContent>
         </Sheet>
