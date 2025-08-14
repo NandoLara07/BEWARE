@@ -33,31 +33,37 @@ const MyOrdersPage = async () => {
   });
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <Header />
-      <div className="px-5">
-        <Orders
-          orders={orders.map((order) => ({
-            id: order.id,
-            totalPriceInCents: order.totalPriceInCents,
-            status: order.status,
-            createdAt: order.createdAt,
-            items: order.items.map((item) => ({
-              id: item.id,
-              imageUrl: item.productVariant.imageUrl,
-              productName: item.productVariant.product.name,
-              productVariantName: item.productVariant.name,
-              priceInCents: item.productVariant.priceInCents,
-              quantity: item.quantity,
-            })),
-          }))}
-        />
-      </div>
+      <main className="flex-1 px-5">
+        {orders.length === 0 ? (
+          <p className="py-10 text-center text-gray-500">
+            Nenhum pedido encontrado.
+          </p>
+        ) : (
+          <Orders
+            orders={orders.map((order) => ({
+              id: order.id,
+              totalPriceInCents: order.totalPriceInCents,
+              status: order.status,
+              createdAt: order.createdAt,
+              items: order.items.map((item) => ({
+                id: item.id,
+                imageUrl: item.productVariant.imageUrl,
+                productName: item.productVariant.product.name,
+                productVariantName: item.productVariant.name,
+                priceInCents: item.productVariant.priceInCents,
+                quantity: item.quantity,
+              })),
+            }))}
+          />
+        )}
+      </main>
 
       <div className="pt-12">
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 
